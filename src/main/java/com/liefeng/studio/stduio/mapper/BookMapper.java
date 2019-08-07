@@ -1,9 +1,9 @@
 package com.liefeng.studio.stduio.mapper;
 
-import com.liefeng.studio.stduio.entity.User;
+
+import com.liefeng.studio.stduio.entity.Book;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
 
@@ -11,8 +11,8 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface UserMapper {
+public interface BookMapper {
 
-    @SelectProvider(type = UserProvider.class, method = "getAllUser")
-    List<User> getAllUser(@Param("search_key") String search_key);
+    @SelectProvider(type = BookProvider.class, method = "getAllBook")
+    List<Book> getAllBook(@Param("search_key") String search_key);
 }

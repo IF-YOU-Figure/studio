@@ -20,47 +20,10 @@ import javax.validation.constraints.Size;
 @Alias("user")
 public class User {
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userAddress='" + userAddress + '\'' +
-                '}';
-    }
+    private String user_id;
+    private String user_name;
+    private String user_email;
+    private String user_phone;
+    private String user_address;
 
-    private String userId;
-
-    @NotEmpty(message = "姓名不能为空")
-    @Size(min = 2, max = 3)
-    private String userName;
-
-    @NotEmpty(message = "密码不能为空")
-    @Size(max = 100)
-    private String userPassword;
-
-    @NotEmpty(message = "邮箱不能为空")
-    @Size(max = 50)
-    @Email(message = "邮箱格式不对")
-    private String userEmail;
-
-    @NotEmpty(message = "手机号不能为空")
-    @Size(max = 12)
-    private String userPhone;
-
-    @Size(max = 124)
-    private String userAddress;
-
-
-    public User() {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
-        this.userAddress = userAddress;
-    }
 }
