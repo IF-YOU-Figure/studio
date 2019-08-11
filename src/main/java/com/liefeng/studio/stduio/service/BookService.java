@@ -9,7 +9,9 @@ import com.liefeng.studio.stduio.mapper.BookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookService {
@@ -26,4 +28,28 @@ public class BookService {
         List<Book> books = bookMapper.getAllBook(search_key);
         return new PageInfo<>(books);
     }
+
+    public List<Book> findBookByName(ServiceRequest serviceRequest) {
+        String book_name = String.valueOf(serviceRequest.getParam().get("book_name"));
+        return bookMapper.findBookByName(book_name);
+    }
+
+    public Map<String, Object> borrowBook(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String book_name = String.valueOf(serviceRequest.getParam().get("book_name"));
+        String user_name = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String book_stock = bookMapper.getBookNumber(book_name);
+        if (!book_stock.equals("0")){
+            bookMapper.borrowBook(book_name,user_name);
+            if (book_stock.equals("1")){
+                bookMapper.updateBookOnlyOne("book_name");
+            }else
+                bookMapper.updateBookNotOnlyOne("book_name");
+        }else{
+            result.put("msg","该书不可借");
+        }
+        result.put("msg","借阅成功");
+        return result;
+    }
+
 }

@@ -6,7 +6,7 @@ import org.apache.ibatis.jdbc.SQL;
 
 public class BookProvider {
 
-    public String getAllTask(@Param("search_key") String search_key){
+    public String getAllBook(@Param("search_key") String search_key){
         SQL selectSQL = new SQL();
         selectSQL.SELECT("book_id,book_name,book_category,book_number,book_publish,state,book_stock")
                 .FROM("book");

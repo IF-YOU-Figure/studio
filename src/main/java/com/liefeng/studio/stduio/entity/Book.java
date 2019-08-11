@@ -8,17 +8,17 @@ import org.apache.ibatis.type.Alias;
 @Alias("book")
 public class Book {
 
-    private Integer bookId;
+    private Integer book_id;
 
-    private String bookName;
+    private String book_name;
 
-    private String bookCategory;
+    private String book_category;
 
-    private Integer bookNumber;
+    private String book_number;
 
-    private Integer bookStock;
+    private String book_stock;
 
-    private String bookPublish;
+    private String book_publish;
 
     private String state;
 }
