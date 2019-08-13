@@ -40,4 +40,15 @@ public class TaskService {
 
         return result;
     }
+
+    public Map<String, Object> createTask(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String task_owner = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String task_description = String.valueOf(serviceRequest.getParam().get("task_description"));
+        String task_name = String.valueOf(serviceRequest.getParam().get("task_name"));
+        String task_time = String.valueOf(serviceRequest.getParam().get("task_time"));
+        taskMapper.createTask(task_name,task_owner,task_description,task_time);
+        result.put("msg","创建成功");
+        return result;
+    }
 }

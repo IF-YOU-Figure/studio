@@ -3,22 +3,21 @@ package com.liefeng.studio.stduio.entity;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
-import java.sql.Timestamp;
 
 @Data
 @Alias("task")
 public class Task {
 
 
-    private Integer taskId;
+    private Integer task_id;
 
-    private String taskName;
+    private String task_name;
 
-    private String taskDescription;
+    private String task_description;
 
-    private String taskOwner;
+    private String task_owner;
 
-    private Timestamp taskStartTime;
+    private String task_start_time;
 
-    private Timestamp taskEndTime;
+    private String task_end_time;
 }

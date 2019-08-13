@@ -21,4 +21,9 @@ public class TaskController {
     public ServiceResponse getMyTask(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(taskService.getMyTask(serviceRequest));
     }
+
+    @PostMapping("/create")
+    public ServiceResponse createTask(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(taskService.createTask(serviceRequest));
+    }
 }
