@@ -20,20 +20,20 @@ public class AdminController {
     @Autowired
     private BookService bookService;
 
-    @PostMapping("/alluser")
+    @PostMapping("/all/user")
     public ServiceResponse listUser(@RequestBody ServiceRequest serviceRequest){
         PageInfo<User> userPageInfo = userService.getAllUser(serviceRequest);
         return new ServiceResponse<>(userPageInfo);
     }
 
-    @PostMapping("/alltask")
+    @PostMapping("/all/task")
     public ServiceResponse listTask(@RequestBody ServiceRequest serviceRequest){
         PageInfo<Task> taskPageInfo = taskService.getAllTask(serviceRequest);
         return new ServiceResponse<>(taskPageInfo);
     }
 
 
-    @PostMapping("/allbook")
+    @PostMapping("/all/book")
     public ServiceResponse listBook(@RequestBody ServiceRequest serviceRequest){
         PageInfo<Book> bookPageInfo = bookService.getAllBook(serviceRequest);
         return new ServiceResponse<>(bookPageInfo);
