@@ -56,6 +56,23 @@ public class UserService {
         return result;
     }
 
+    public Map<String, Object> updateIcon(ServiceRequest serviceRequest){
+        Map<String ,Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String userIcon = String.valueOf(serviceRequest.getParam().get("user_icon"));
+        userMapper.updateIcon(userName,userIcon);
+        result.put("msg","修改成功");
+        return result;
+    }
+
+    public Map<String, Object> getIcon(ServiceRequest serviceRequest){
+        Map<String ,Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        Object img = userMapper.getIcon(userName);
+        result.put("msg", new String((byte[]) img));
+        return result;
+    }
+
     public PageInfo<User> getAllUser(ServiceRequest serviceRequest) {
         int pageSize = Integer.parseInt((String) serviceRequest.getParam().get("page_size"));
         int pageNumber = Integer.parseInt((String) serviceRequest.getParam().get("page_number"));

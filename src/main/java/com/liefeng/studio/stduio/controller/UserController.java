@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public @ResponseBody ServiceResponse login(@RequestBody ServiceRequest serviceRequest){
+    public ServiceResponse login(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(userService.login(serviceRequest));
     }
 
@@ -33,4 +33,13 @@ public class UserController {
         return new ServiceResponse<>(userService.modify(serviceRequest));
     }
 
+    @PostMapping("/updateicon")
+    public ServiceResponse updateIcon(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(userService.updateIcon(serviceRequest));
+    }
+
+    @PostMapping("/geticon")
+    public ServiceResponse getIcon(@RequestBody ServiceRequest serviceRequest) {
+        return new ServiceResponse<>(userService.getIcon(serviceRequest));
+    }
 }

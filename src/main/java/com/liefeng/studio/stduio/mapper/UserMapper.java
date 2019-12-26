@@ -33,5 +33,11 @@ public interface UserMapper {
                     @Param("new_user_email") String new_user_email,
                     @Param("new_user_password") String new_user_password);
 
+    @Update("UPDATE user SET user_icon=#{user_icon} where user_name=#{user_name}")
+    void updateIcon(@Param("user_name") String user_name,
+                    @Param("user_icon") String user_icon);
+
+    @Select("SELECT user_icon FROM user WHERE user_name=#{user_name}")
+    Object getIcon(@Param("user_name") String user_name);
 
 }
