@@ -3,6 +3,7 @@ package com.liefeng.studio.stduio.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liefeng.studio.stduio.entity.Book;
+import com.liefeng.studio.stduio.entity.BookBorrow;
 import com.liefeng.studio.stduio.entity.ServiceRequest;
 import com.liefeng.studio.stduio.entity.Task;
 import com.liefeng.studio.stduio.mapper.BookMapper;
@@ -49,6 +50,16 @@ public class BookService {
             result.put("msg","该书不可借");
         }
         result.put("msg","借阅成功");
+        return result;
+    }
+
+    public Map<String, Object> myBook(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String user_name = String.valueOf(serviceRequest.getParam().get("user_name"));
+        List<BookBorrow> bookBorrowList = bookMapper.myBook(user_name);
+        result.put("msg",bookBorrowList);
+
+
         return result;
     }
 

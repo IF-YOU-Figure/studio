@@ -24,6 +24,10 @@ public class BookController {
     public ServiceResponse borrowBook(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(bookService.borrowBook(serviceRequest));
     }
+    @PostMapping("/mybook")
+    public ServiceResponse myBook(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(bookService.myBook(serviceRequest));
+    }
 
 
 

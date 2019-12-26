@@ -2,6 +2,7 @@ package com.liefeng.studio.stduio.mapper;
 
 
 import com.liefeng.studio.stduio.entity.Book;
+import com.liefeng.studio.stduio.entity.BookBorrow;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +30,6 @@ public interface BookMapper {
     @Update("UPDATE book set book_stock=book_stock-1 where book_name=#{book_name} ")
     void updateBookNotOnlyOne(@Param("book_name") String book_name);
 
+    @Select("SELECT * FROM book_borrow WHERE user_name=#{user_name}")
+    List<BookBorrow> myBook(@Param("user_name") String user_name);
 }

@@ -5,31 +5,32 @@ import com.liefeng.studio.stduio.entity.ServiceRequest;
 import com.liefeng.studio.stduio.entity.ServiceResponse;
 
 import com.liefeng.studio.stduio.service.UserService;
-import javafx.concurrent.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/login")
-    public ServiceResponse login(@RequestBody ServiceRequest serviceRequest){
+    public @ResponseBody ServiceResponse login(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(userService.login(serviceRequest));
     }
 
     @PostMapping("/register")
     public ServiceResponse register(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(userService.register(serviceRequest));
+    }
+
+    @PostMapping("/modifyuser")
+    public ServiceResponse modify(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(userService.modify(serviceRequest));
     }
 
 }

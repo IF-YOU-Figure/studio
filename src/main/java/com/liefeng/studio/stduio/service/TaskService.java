@@ -4,12 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.liefeng.studio.stduio.entity.ServiceRequest;
 import com.liefeng.studio.stduio.entity.Task;
-import com.liefeng.studio.stduio.entity.User;
 import com.liefeng.studio.stduio.mapper.TaskMapper;
-import com.sun.corba.se.spi.ior.ObjectKey;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +13,11 @@ import java.util.Map;
 @Service
 public class TaskService {
 
-    @Autowired
-    private TaskMapper taskMapper;
+    private final TaskMapper taskMapper;
+
+    public TaskService(TaskMapper taskMapper) {
+        this.taskMapper = taskMapper;
+    }
 
     public PageInfo<Task> getAllTask(ServiceRequest serviceRequest) {
         int pageSize = Integer.parseInt((String) serviceRequest.getParam().get("page_size"));

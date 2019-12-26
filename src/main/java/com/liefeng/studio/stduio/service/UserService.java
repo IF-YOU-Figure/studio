@@ -18,21 +18,26 @@ public class UserService {
 
     @Autowired
     private UserMapper userMapper;
+
     /*
     登录
      */
     public Map<String, Object> login(ServiceRequest serviceRequest) {
         Map<String , Object> result = new HashMap<>();
-        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String userEmail = String.valueOf(serviceRequest.getParam().get("user_email"));
         String userPassword = String.valueOf(serviceRequest.getParam().get("user_password"));
-        System.out.println(userName);
-        System.out.println(userPassword);
-        User user = userMapper.checkUser(userName, userPassword);
-        if (user == null){
+        User user = userMapper.checkUser(userEmail);
+        if (user!=null){
+            String password = user.getUser_password();
+            if (password.equals(userPassword)){
+                result.put("msg", user);
+            }else {
+                result.put("msg", "密码错误");
+            }
+        }else {
             result.put("msg","用户名不存在！");
-        }else{
-            result.put("msg", user);
         }
+        System.out.println(result);
         return result;
 
     }
@@ -47,7 +52,7 @@ public class UserService {
         String userEmail = String.valueOf(serviceRequest.getParam().get("user_email"));
         String userAddress = String.valueOf(serviceRequest.getParam().get("user_address"));
         userMapper.registerUser(userName, userPhone, userPassword, userEmail, userAddress);
-        result.put("msg","注册成功！");
+        result.put("msg","注册成功!");
         return result;
     }
 
@@ -66,6 +71,16 @@ public class UserService {
         String userId = String.valueOf(serviceRequest.getParam().get("user_id"));
         User getUser = userMapper.getUserById(userId);
         result.put("user",getUser);
+        return result;
+    }
+    public Map<String,Object> modify(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String newUserName = String.valueOf(serviceRequest.getParam().get("new_user_name"));
+        String newUserEmail = String.valueOf(serviceRequest.getParam().get("new_user_email"));
+        String newUserPassword = String.valueOf(serviceRequest.getParam().get("new_user_password"));
+        userMapper.modifyUser(newUserName,userName,newUserEmail,newUserPassword);
+        result.put("msg",newUserName);
         return result;
     }
 

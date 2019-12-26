@@ -17,16 +17,21 @@ public interface UserMapper {
     @Select("SELECT user_id, user_name, user_phone,user_email, user_address FROM user WHERE user_id=#{user_id}")
     User getUserById(@Param("user_id") String user_id);
 
-    @Select("SELECT user_name, user_password FROM user WHERE user_name=#{user_name} and user_password=#{user_password}")
-    User checkUser(@Param("user_name") String user_name, @Param("user_password") String user_password);
+    @Select("SELECT * FROM user WHERE user_email=#{user_email}")
+    User checkUser(@Param("user_email") String user_email);
 
-    @Insert("INSERT INTO user(user_name,user_phone,user_password,user_password,user_email,user_address) values (#{user_name},#{user_phone},#{user_password},#{user_email},#{user_address})")
+    @Insert("INSERT INTO user(user_name,user_phone,user_password,user_email,user_address) values (#{user_name},#{user_phone},#{user_password},#{user_email},#{user_address})")
     void registerUser(@Param("user_name") String user_name,
                       @Param("user_phone") String user_phone,
                       @Param("user_password") String user_password,
                       @Param("user_email") String user_email,
                       @Param("user_address") String user_address);
 
+    @Update("UPDATE user SET user_name=#{new_user_name},user_email=#{new_user_email},user_password=#{new_user_password} where user_name=#{user_name}")
+    void modifyUser(@Param("new_user_name") String new_user_name,
+                    @Param("user_name") String user_name,
+                    @Param("new_user_email") String new_user_email,
+                    @Param("new_user_password") String new_user_password);
 
 
 }
