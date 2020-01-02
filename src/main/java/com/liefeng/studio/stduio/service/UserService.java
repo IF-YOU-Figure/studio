@@ -2,6 +2,7 @@ package com.liefeng.studio.stduio.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.liefeng.studio.stduio.VO.UserVO;
 import com.liefeng.studio.stduio.entity.ServiceRequest;
 import com.liefeng.studio.stduio.entity.User;
 import com.liefeng.studio.stduio.mapper.UserMapper;
@@ -16,11 +17,16 @@ import java.util.Map;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
-    /*
-    登录
+    public UserService(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
+    /**
+     * 登录
+     * @param serviceRequest
+     * @return
      */
     public Map<String, Object> login(ServiceRequest serviceRequest) {
         Map<String , Object> result = new HashMap<>();
@@ -77,7 +83,6 @@ public class UserService {
         int pageSize = Integer.parseInt((String) serviceRequest.getParam().get("page_size"));
         int pageNumber = Integer.parseInt((String) serviceRequest.getParam().get("page_number"));
         String search_key = (String) serviceRequest.getParam().get("search_key");
-
         PageHelper.startPage(pageNumber == 0 ? 1 : pageNumber, pageSize == 0 ? 20 : pageSize, true);
         List<User> users = userMapper.getAllUser(search_key);
         return new PageInfo<>(users);
@@ -87,9 +92,10 @@ public class UserService {
         Map<String, Object> result = new HashMap<>();
         String userId = String.valueOf(serviceRequest.getParam().get("user_id"));
         User getUser = userMapper.getUserById(userId);
-        result.put("user",getUser);
+        result.put("msg",getUser);
         return result;
     }
+
     public Map<String,Object> modify(ServiceRequest serviceRequest){
         Map<String, Object> result = new HashMap<>();
         String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
@@ -100,5 +106,60 @@ public class UserService {
         result.put("msg",newUserName);
         return result;
     }
+
+    public Map<String, Object> getOnlineNumber(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        int getOnlineNumber = userMapper.getOnlineNumber();
+        result.put("msg",getOnlineNumber);
+        return result;
+    }
+
+    public Map<String, Object> getUser(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        User user = userMapper.getUser(userName);
+        UserVO userVO = new UserVO();
+        userVO.setUser_name(user.getUser_name());
+        userVO.setUser_email(user.getUser_email());
+        userVO.setUser_address(user.getUser_address());
+        userVO.setUser_phone(user.getUser_phone());
+        userVO.setUser_qq(user.getUser_qq());
+        userVO.setUser_age(user.getUser_age());
+        userVO.setUser_position(user.getUser_position());
+        userVO.setUser_grade(user.getUser_grade());
+        userVO.setUser_direction(user.getUser_direction());
+        userVO.setUser_target(user.getUser_target());
+        result.put("msg",userVO);
+        return result;
+    }
+
+    public Map<String, Object> getUserAll(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        List<UserVO> userAll = userMapper.getUserAll();
+        result.put("msg",userAll);
+        return result;
+    }
+
+
+    public Map<String, Object> modifyDetail(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String user_email = String.valueOf(serviceRequest.getParam().get("user_email"));
+        String user_phone = String.valueOf(serviceRequest.getParam().get("user_phone"));
+        String user_address = String.valueOf(serviceRequest.getParam().get("user_address"));
+        String user_position = String.valueOf(serviceRequest.getParam().get("user_position"));
+        String user_qq = String.valueOf(serviceRequest.getParam().get("user_qq"));
+        String user_age = String.valueOf(serviceRequest.getParam().get("user_age"));
+        String user_grade = String.valueOf(serviceRequest.getParam().get("user_grade"));
+        String user_direction = String.valueOf(serviceRequest.getParam().get("user_direction"));
+        userMapper.modifyDetail(userName,user_email,user_phone,user_address,user_position,
+                user_qq,user_age,user_grade,user_direction);
+        result.put("msg","修改成功");
+        return result;
+    }
+
+
+
 
 }

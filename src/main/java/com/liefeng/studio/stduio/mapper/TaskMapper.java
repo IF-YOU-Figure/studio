@@ -19,4 +19,10 @@ public interface TaskMapper {
     @Insert("INSERT INTO task(task_name,task_owner,task_description,task_start_time,task_end_time) values (#{task_name},#{task_owner},#{task_description} ,NOW(),DATE_ADD(now(),INTERVAL #{task_time}  MONTH))")
     void createTask(@Param("task_name") String task_name, @Param("task_owner") String task_owner, @Param("task_description") String task_description, @Param("task_time") String task_time);
 
+    @Select("SELECT COUNT(*) FROM task")
+    int getTaskNumber();
+
+    @Select("SELECT * FROM task")
+    List<Task> getAllTaskList();
+
 }

@@ -42,4 +42,27 @@ public class UserController {
     public ServiceResponse getIcon(@RequestBody ServiceRequest serviceRequest) {
         return new ServiceResponse<>(userService.getIcon(serviceRequest));
     }
+
+    @PostMapping("/getOnlineNumber")
+    public ServiceResponse getOnlineNumber(@RequestBody ServiceRequest serviceRequest) {
+        return new ServiceResponse<>(userService.getOnlineNumber(serviceRequest));
+    }
+
+    @PostMapping("/getuser")
+    public ServiceResponse getUser(@RequestBody ServiceRequest serviceRequest) {
+        return new ServiceResponse<>(userService.getUser(serviceRequest));
+    }
+
+
+    @PostMapping("/getuserall")
+    public ServiceResponse getUserAll(@RequestBody ServiceRequest serviceRequest) {
+        return new ServiceResponse<>(userService.getUserAll(serviceRequest));
+    }
+
+    @PostMapping("/modifydetail")
+    public ServiceResponse modifyDetail(@RequestBody ServiceRequest serviceRequest) {
+        return new ServiceResponse<>(userService.modifyDetail(serviceRequest));
+    }
+
+
 }

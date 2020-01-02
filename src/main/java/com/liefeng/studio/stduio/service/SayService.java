@@ -18,9 +18,7 @@ public class SayService {
 
     public Map<String, Object> getSay(ServiceRequest serviceRequest){
         Map<String, Object> result = new HashMap<>();
-
         List<Say> sayList = sayMapper.getSendSay();
-        System.out.println(sayList);
         result.put("msg",sayList);
         return result;
     }
@@ -35,6 +33,14 @@ public class SayService {
         result.put("msg","发布成功！");
         return result;
     }
+
+    public Map<String, Object> getSayNumberSay(ServiceRequest serviceRequest){
+        Map<String ,Object> result = new HashMap<>();
+        int sayNumber = sayMapper.getSayNumberSay();
+        result.put("msg",sayNumber);
+        return result;
+    }
+
 
 
 }

@@ -27,6 +27,11 @@ public class SayController {
         return new ServiceResponse<>(sayService.writeSay(serviceRequest));
     }
 
+    @PostMapping("/getSayNumber")
+    public ServiceResponse getSayNumber(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(sayService.getSayNumberSay(serviceRequest));
+    }
+
 
 
 }

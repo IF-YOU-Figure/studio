@@ -35,8 +35,6 @@ public class TaskService {
         String user_name = String.valueOf(serviceRequest.getParam().get("user_name"));
         List<Task> tasks = taskMapper.getMyTaskMapper(user_name);
         result.put("myTask",tasks);
-
-
         return result;
     }
 
@@ -50,4 +48,21 @@ public class TaskService {
         result.put("msg","创建成功");
         return result;
     }
+
+    public Map<String, Object> getTaskNumber(ServiceRequest serviceRequest){
+        Map<String ,Object> result = new HashMap<>();
+        int taskNumber = taskMapper.getTaskNumber();
+        result.put("msg",taskNumber);
+        return result;
+    }
+
+    public Map<String, Object> getAllTaskList(ServiceRequest serviceRequest){
+        Map<String ,Object> result = new HashMap<>();
+        List<Task> tasks = taskMapper.getAllTaskList();
+        result.put("msg",tasks);
+        return result;
+    }
+
+
+
 }

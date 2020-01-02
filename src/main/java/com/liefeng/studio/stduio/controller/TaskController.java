@@ -19,7 +19,7 @@ public class TaskController {
     @Resource
     private TaskService taskService;
 
-    @PostMapping("/mytask")
+    @PostMapping("/alltask")
     public ServiceResponse getMyTask(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(taskService.getMyTask(serviceRequest));
     }
@@ -27,5 +27,15 @@ public class TaskController {
     @PostMapping("/create")
     public ServiceResponse createTask(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(taskService.createTask(serviceRequest));
+    }
+
+    @PostMapping("/getTaskNumber")
+    public ServiceResponse getSayNumber(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(taskService.getTaskNumber(serviceRequest));
+    }
+
+    @PostMapping("/getAllTaskList")
+    public ServiceResponse getAllTask(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(taskService.getAllTaskList(serviceRequest));
     }
 }
