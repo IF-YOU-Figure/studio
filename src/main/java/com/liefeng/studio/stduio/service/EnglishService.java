@@ -4,8 +4,6 @@ import com.liefeng.studio.stduio.VO.EnglishVo;
 import com.liefeng.studio.stduio.entity.English;
 import com.liefeng.studio.stduio.entity.ServiceRequest;
 import com.liefeng.studio.stduio.mapper.EnglishMapper;
-import com.liefeng.studio.stduio.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -49,6 +47,24 @@ public class EnglishService {
         Map<String, Object> result = new HashMap<>();
         List<EnglishVo> totalRanking = englishMapper.totalRanking();
         result.put("msg",totalRanking);
+        return result;
+    }
+
+    public Map<String, Object> getNumber(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+        String clock = String.valueOf(serviceRequest.getParam().get("clock"));
+        String week = String.valueOf(serviceRequest.getParam().get("week"));
+        String weekDay = String.valueOf(serviceRequest.getParam().get("weekDay"));
+        String getWeek = englishMapper.getWeek(userName);
+        if (week.equals(getWeek)){
+            englishMapper.setWeek(userName,weekDay,clock,week);
+        }else{
+            String newWeek = week+1;
+            englishMapper.createWeek(userName,weekDay,clock,newWeek);
+        }
+
+        result.put("msg","打卡成功");
         return result;
     }
 

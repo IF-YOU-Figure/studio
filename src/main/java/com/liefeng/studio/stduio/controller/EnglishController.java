@@ -33,4 +33,9 @@ public class EnglishController {
     public ServiceResponse totalRanking(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(englishService.totalRanking(serviceRequest));
     }
+
+    @PostMapping("/getnumber")
+    public ServiceResponse getNumber(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(englishService.getNumber(serviceRequest));
+    }
 }
