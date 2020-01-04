@@ -1,5 +1,6 @@
 package com.liefeng.studio.stduio.service;
 
+import com.liefeng.studio.stduio.VO.EnglishRecordVO;
 import com.liefeng.studio.stduio.VO.EnglishVo;
 import com.liefeng.studio.stduio.entity.English;
 import com.liefeng.studio.stduio.entity.ServiceRequest;
@@ -63,8 +64,19 @@ public class EnglishService {
             String newWeek = week+1;
             englishMapper.createWeek(userName,weekDay,clock,newWeek);
         }
+        englishMapper.record(userName, clock);
 
         result.put("msg","打卡成功");
+        return result;
+    }
+
+
+    public Map<String, Object> getRecord(ServiceRequest serviceRequest){
+        Map<String, Object> result = new HashMap<>();
+        String userName = String.valueOf(serviceRequest.getParam().get("user_name"));
+
+        List<EnglishRecordVO> englishRecordVOS = englishMapper.getRecord(userName);
+        result.put("msg",englishRecordVOS);
         return result;
     }
 

@@ -153,8 +153,9 @@ public class UserService {
         String user_age = String.valueOf(serviceRequest.getParam().get("user_age"));
         String user_grade = String.valueOf(serviceRequest.getParam().get("user_grade"));
         String user_direction = String.valueOf(serviceRequest.getParam().get("user_direction"));
+        String user_target = String.valueOf(serviceRequest.getParam().get("user_target"));
         userMapper.modifyDetail(userName,user_email,user_phone,user_address,user_position,
-                user_qq,user_age,user_grade,user_direction);
+                user_qq,user_age,user_grade,user_direction,user_target);
         result.put("msg","修改成功");
         return result;
     }

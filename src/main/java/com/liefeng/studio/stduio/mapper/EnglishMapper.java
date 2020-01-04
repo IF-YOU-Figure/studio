@@ -1,6 +1,7 @@
 package com.liefeng.studio.stduio.mapper;
 
 
+import com.liefeng.studio.stduio.VO.EnglishRecordVO;
 import com.liefeng.studio.stduio.VO.EnglishVo;
 import com.liefeng.studio.stduio.entity.English;
 import org.apache.ibatis.annotations.*;
@@ -36,8 +37,11 @@ public interface EnglishMapper {
     @InsertProvider(type = EnglishProvider.class, method = "createWeek")
     void createWeek(@Param("user_name") String user_name,@Param("weekDay") String weekDay,@Param("clock") String clock,@Param("week") String week);
 
+    @Insert("INSERT INTO eng_record(user_name,record_number,record_date) VALUES (#{user_name},#{record_number},NOW())")
+    void record(@Param("user_name") String user_name,@Param("record_number") String record_number);
 
-
+    @Select("SELECT user_name,record_number,record_date FROM eng_record WHERE user_name=#{user_name} ORDER BY record_date DESC limit 0,5")
+    List<EnglishRecordVO> getRecord(@Param("user_name") String user_name);
 
 
 }

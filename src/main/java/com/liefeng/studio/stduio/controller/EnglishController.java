@@ -38,4 +38,9 @@ public class EnglishController {
     public ServiceResponse getNumber(@RequestBody ServiceRequest serviceRequest){
         return new ServiceResponse<>(englishService.getNumber(serviceRequest));
     }
+
+    @PostMapping("/getrecord")
+    public ServiceResponse getRecord(@RequestBody ServiceRequest serviceRequest){
+        return new ServiceResponse<>(englishService.getRecord(serviceRequest));
+    }
 }

@@ -1,6 +1,7 @@
 package com.liefeng.studio.stduio.mapper;
 
 import com.liefeng.studio.stduio.entity.Say;
+import com.liefeng.studio.stduio.entity.SaySayComment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,5 +23,9 @@ public interface SayMapper {
     @Select("SELECT COUNT(*) FROM say")
     int getSayNumberSay();
 
+    @Select("SELECT * FROM say WHERE say_id=#{i}")
+    Say getSay(@Param("i") Integer i);
 
+    @Select("SELECT * FROM saysay_comment WHERE say_title=#{say_title}")
+    List<SaySayComment> getSayComment(@Param("say_title") String say_title);
 }

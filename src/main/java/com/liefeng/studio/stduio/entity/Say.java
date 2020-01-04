@@ -3,6 +3,8 @@ package com.liefeng.studio.stduio.entity;
 import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
+import java.util.List;
+
 @Data
 @Alias("say")
 public class Say {
@@ -17,8 +19,9 @@ public class Say {
 
     private String say_date;
 
+    private List<SaySayComment> comment;
 
-
+    private String user_icon;
 
 
 }

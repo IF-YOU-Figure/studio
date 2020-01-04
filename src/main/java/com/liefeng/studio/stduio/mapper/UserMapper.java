@@ -50,7 +50,7 @@ public interface UserMapper {
     @Select("SELECT * FROM user")
     List<UserVO> getUserAll();
 
-    @Update("UPDATE user SET user_email=#{user_email},user_phone=#{user_phone},user_address=#{user_address},user_position=#{user_position},user_qq=#{user_qq},user_age=#{user_age},user_grade=#{user_grade},user_direction=#{user_direction} where user_name=#{user_name}")
+    @Update("UPDATE user SET user_email=#{user_email},user_phone=#{user_phone},user_address=#{user_address},user_position=#{user_position},user_qq=#{user_qq},user_age=#{user_age},user_grade=#{user_grade},user_direction=#{user_direction},user_target=#{user_target} where user_name=#{user_name}")
     void modifyDetail(@Param("user_name") String user_name,
                       @Param("user_email") String user_email,
                       @Param("user_phone") String user_phone,
@@ -59,7 +59,8 @@ public interface UserMapper {
                       @Param("user_qq") String user_qq,
                       @Param("user_age") String user_age,
                       @Param("user_grade") String user_grade,
-                      @Param("user_direction") String user_direction);
+                      @Param("user_direction") String user_direction,
+                      @Param("user_target") String user_target);
 
 
 }
