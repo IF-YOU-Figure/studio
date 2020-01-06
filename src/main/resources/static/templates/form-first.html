@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    name="viewport">
+  <title>我的主页</title>
+
+  <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <script src="../dist/modules/jquery.min.js"></script>
+  <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
+  <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="../dist/css/demo.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+
+  <script src="../dist/modules/jquery.min.js"></script>
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  <style>
+    table {
+      width: 100%;
+      height: auto;
+    }
+
+    input[type='text'] {
+      border: 0;
+      height: 26.5px;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    $(function () {
+      $("#datepicker_1").datepicker();
+      $("#datepicker_2").datepicker();
+      $("#datepicker_3").datepicker();
+      $("#datepicker_4").datepicker();
+      $("#datepicker_5").datepicker();
+    });
+  </script>
+
+  <script>
+    function disableElement1() {
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_1').disabled = true;
+          document.getElementById('btn_1').className = "badge badge-secondary";
+          document.getElementById('btn_1').setAttribute("class", "badge badge-secondary");
+          document.getElementById('datepicker_1').disabled = "disabled";
+          document.getElementById('text_lon_1').disabled = "disabled";
+          document.getElementById('tex_pos_1').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+
+    function disableElement2() {
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_2').disabled = true;
+          document.getElementById('btn_2').className = "badge badge-secondary";
+          document.getElementById('btn_2').setAttribute("class", "badge badge-secondary");
+          document.getElementById('datepicker_2').disabled = "disabled";
+          document.getElementById('text_lon_2').disabled = "disabled";
+          document.getElementById('tex_pos_2').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+
+    function disableElement3() {
+
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_3').disabled = true;
+          document.getElementById('btn_3').className = "badge badge-secondary";
+          document.getElementById('btn_3').setAttribute("class", "badge badge-secondary");
+          document.getElementById('datepicker_3').disabled = "disabled";
+          document.getElementById('text_lon_3').disabled = "disabled";
+          document.getElementById('tex_pos_3').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+
+    function disableElement4() {
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_4').disabled = true;
+          document.getElementById('btn_4').className = "badge badge-secondary";
+          document.getElementById('btn_4').setAttribute("class", "badge badge-secondary");
+          document.getElementById('datepicker_4').disabled = "disabled";
+          document.getElementById('text_lon_4').disabled = "disabled";
+          document.getElementById('tex_pos_4').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+
+    function disableElement5() {
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_5').disabled = true;
+          document.getElementById('btn_5').className = "badge badge-secondary";
+          document.getElementById('btn_5').setAttribute("class", "badge badge-secondary");
+          document.getElementById('datepicker_5').disabled = "disabled";
+          document.getElementById('text_lon_5').disabled = "disabled";
+          document.getElementById('tex_pos_5').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+
+    function disableElement6() {
+
+      var target_content = $('#text_lon_1').val();
+      var situation = $('#tex_pos_1').val();
+      var date_task = $('#datepicker_1').val();
+
+      var data2 = {
+        "param": {
+          "user_name": name,
+          "target_content": target_content,
+          "situation": situation,
+          "date_task": date_task,
+          "week": s2
+        }
+      }
+
+      var data = JSON.stringify(data2)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8081/weekly/createweeklyDetail",
+        contentType: "application/json;charset=utf-8",
+        data,
+        dataType: "json",
+        success: function (data) {
+          document.getElementById('btn_6').disabled = true;
+          document.getElementById('btn_6').className = "badge badge-secondary";
+          document.getElementById('btn_6').setAttribute("class", "badge badge-secondary");
+          document.getElementById('text_lon_6').disabled = "disabled";
+          document.getElementById('text_lon_7').disabled = "disabled";
+        },
+        error: function (message) {
+          //失败信息
+        }
+      });
+    }
+  </script>
+
+
+  <script>
+    var storage = localStorage;
+    storage["name"] = window.location.href.split('?')[1].split('=')[1]
+    var nameTag = storage.getItem("name")
+    var name = decodeURIComponent(nameTag)
+    var d1 = new Date();
+    var d2 = new Date();
+    d2.setMonth(0);
+    d2.setDate(1);
+    var rq = d1 - d2;
+    var s1 = Math.ceil(rq / (24 * 60 * 60 * 1000));
+    var s2 = Math.ceil(s1 / 7);
+  </script>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                  class="ion ion-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">View All</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+              <i class="ion ion-android-person d-lg-none"></i>
+              <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div>
+            </a>
+            <script>
+              $("#perponal").append(name)
+            </script>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="profile.html" class="dropdown-item has-icon">
+                <i class="ion ion-android-person"></i> 个人中心
+              </a>
+              <a href="#" class="dropdown-item has-icon">
+                <i class="ion ion-log-out"></i> 退出
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">工作室</a>
+          </div>
+          <script>
+            //头像展示
+            var data2 = {
+              "param": {
+                "user_name": name
+              }
+            }
+            var data = JSON.stringify(data2)
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/geticon",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                // var img = new Image();
+                // img.src = data.data.msg;
+                // document.getElementById("image").appendChild(img);
+                $("#image").attr("src", data.data.msg)
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/getuser",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                var msgs = `<div class="sidebar-user-details">
+                              <div class="user-name" >${data.data.msg.user_name}</div>
+                              <div class="user-role" >
+                                ${data.data.msg.user_position}
+                              </div>
+                            </div>`
+                            $("#msgs").append(msgs);
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+          </script>
+          <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="#" id="image">
+            </div>           
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="active">
+              <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
+            </li>
+
+            <li class="menu-header">Components</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
+              <ul class="menu-dropdown">
+                 <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
+                <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
+                
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡</a></li>
+                <li><a href="form-first.html"><i class="ion ion-ios-circle-outline"></i> 周报打卡</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
+            </li>
+            <li>
+              <a href="#"class="has-dropdown"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
+                <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
+                <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
+                <!-- <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li> -->
+              </ul>
+            </li>
+
+            <li class="menu-header">More</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
+              <ul class="menu-dropdown">
+                <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
+                <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="achievement.html"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="simple.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
+            </li>
+          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i>
+              <div>退   出!</div>
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="main-content">
+        <section class="section">
+          <br>
+          <h1 style="text-align: center;margin-bottom: 20px;">
+            <div>学习计划周报表
+              <img src="../dist/img/s.png">
+            </div>
+          </h1>
+          <div class="section-body" style="background: url('../dist/img/11.jpg');border-radius: 50px;">
+            <div class="row">
+              <div class="col-12">
+
+                <div class="card-body">
+                  <div style="font-family:cursive; font-size:x-large; text-align:center;">
+                    <table class="table table-striped" style="background:transparent">
+                      <tr>
+                        <th>本周学习目标与计划</th>
+                        <th>目前学习进展情况</th>
+                        <th>完成时间</th>
+                        <th>提交</th>
+                      </tr>
+                      <tr>
+                        <td><textarea rows=1 cols="50" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_1"></textarea></td>
+                        <td><input style="border-radius: 50px; " type="text" id="tex_pos_1"></td>
+                        <td><input style="border-radius: 50px; text-align: center;width:100%;" type="text"
+                            id="datepicker_1"></td>
+                        <td><button class="badge badge-success" id="btn_1" onclick="disableElement1()">确认提交</button>
+                        </td>
+
+                      </tr>
+                      <tr>
+                        <td><textarea rows=1 cols="50" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_2"></textarea></td>
+                        <td><input style="border-radius: 50px;" type="text" id="tex_pos_2"></td>
+                        <td><input style="border-radius: 50px; text-align: center;width:100%;" type="text"
+                            id="datepicker_2"></td>
+                        <td><button class="badge badge-success" id="btn_2" onclick="disableElement2()">确认提交</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><textarea rows=1 cols="50" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_3"></textarea></td>
+                        <td><input style="border-radius: 50px;" type="text" id="tex_pos_3"></td>
+                        <td><input style="border-radius: 50px; text-align: center;width:100%;" type="text"
+                            id="datepicker_3"></td>
+                        <td><button class="badge badge-success" id="btn_3" onclick="disableElement3()">确认提交</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><textarea rows=1 cols="50" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_4"></textarea></td>
+                        <td><input style="border-radius: 50px;" type="text" id="tex_pos_4"></td>
+                        <td><input style="border-radius: 50px; text-align: center;width:100%;" type="text"
+                            id="datepicker_4"></td>
+                        <td><button class="badge badge-success" id="btn_4" onclick="disableElement4()">确认提交</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><textarea rows=1 cols="50" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_5"></textarea></td>
+                        <td><input style="border-radius: 50px;" type="text" id="tex_pos_5"></td>
+                        <td><input style="border-radius: 50px; text-align: center;width:100%;" type="text"
+                            id="datepicker_5"></td>
+                        <td><button class="badge badge-success" id="btn_5" onclick="disableElement5()">确认提交</button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body">
+                  <div style="font-family:cursive; font-size:x-large; text-align:center;">
+                    <table class="table table-striped" style="background:transparent">
+                      <tr>
+                        <th>本周学习总结</th>
+                        <th>下周预期计划</th>
+                        <th>提交</th>
+                      </tr>
+                      <tr>
+                        <td><textarea rows=3 cols="40" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_6"></textarea></td>
+                        <td><textarea rows=3 cols="40" style="border-color: transparent;border-radius:50px;"
+                            id="text_lon_7"></textarea></td>
+                        <td><button type="submit" class="badge badge-success" style="margin:30px;"
+                            id="btn_6">确认提交</button></td>
+                      </tr>
+                    </table>
+                    <br><br><br><br><br>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <script>
+              $.ajaxSetup({
+                headers: {
+                  'Content-Type': 'application/json;charset=utf8'
+                },
+                xhrFields: {
+                  withCredentials: true
+                },
+                crossDomain: true,
+              })
+              $("[type='submit']").on('click', function () {
+
+
+                var evaluate = $('#text_lon_6').val();
+                var plan = $("#text_lon_7").val();
+
+                var data2 = {
+                  "param": {
+                    "user_name": name,
+                    "evaluate": evaluate,
+                    "plan": plan,
+                    "week": s2,
+
+                  }
+                }
+
+                var data = JSON.stringify(data2)
+                $.ajax({
+                  type: "POST",
+                  url: "http://localhost:8081/weekly/createweekly",
+                  contentType: "application/json;charset=utf-8",
+                  data,
+                  dataType: "json",
+                  success: function (data) {
+                    let msg = data.data.msg
+                    if (msg == "提交成功") {
+                      alert("提交成功")
+                      location.href = 'show.html'
+                    }
+                  },
+                  error: function (message) {
+                    //失败信息
+                  }
+                });
+              })
+            </script>
+          </div>
+        </section>
+      </div>
+      <script src="../dist/modules/popper.js"></script>
+      <script src="../dist/modules/tooltip.js"></script>
+      <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+      <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+      <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+      <script src="../dist/js/sa-functions.js"></script>
+    
+      <script src="../dist/modules/chart.min.js"></script>
+      <script src="../dist/modules/summernote/summernote-lite.js"></script>
+      <script src="../dist/js/scripts.js"></script>
+      <script src="../dist/js/custom.js"></script>
+      <script src="../dist/js/demo.js"></script>
+</body>
+
+</html>

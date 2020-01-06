@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    name="viewport">
+  <title>我的主页</title>
+
+  <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <script src="../dist/modules/jquery.min.js"></script>
+  <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
+  <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="../dist/css/demo.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+
+  <script src="../dist/modules/jquery.min.js"></script>
+
+  <style>
+    .id {
+      width: 80px;
+      height: auto;
+      position: relative;
+      margin-left: 5%;
+      bottom: 50px;
+      text-align: left;
+    }
+
+    .id1 {
+      width: 80px;
+      height: auto;
+      position: relative;
+      margin-left: 4%;
+      bottom: 50px;
+      text-align: left;
+    }
+
+    .pic {
+      border-radius: 100%;
+      width: 62.5px;
+      height: 62.5px;
+    }
+
+    .pic1 {
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .tim {
+      width: 50%;
+      height: auto;
+      position: relative;
+      margin-left: 5%;
+      bottom: 50px;
+      text-align: left;
+    }
+
+    .tim1 {
+      width: 200px;
+      height: auto;
+      position: relative;
+      right: -4%;
+      bottom: 90px;
+      text-align: left;
+    }
+
+    .say {
+      position: relative;
+      width: 100%;
+      height: auto;
+      bottom: 30px;
+      margin-top: 0.5%;
+    }
+
+    .talk {
+      position: relative;
+      bottom: 92px;
+      margin-left: 8%;
+    }
+
+    .biaodian {
+      position: relative;
+      bottom: 72px;
+      margin-left: 7%;
+    }
+
+    input[type='text'] {
+      position: relative;
+      width: 400px;
+      height: 28px;
+      bottom: 20px;
+    }
+
+    .heart {
+      opacity: 0.5;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 2%;
+      margin-left: 15%;
+      margin-top: -0.5%;
+    }
+
+    .chatbubble {
+      opacity: 0.5;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 2%;
+      margin-left: 2%;
+      margin-top: -0.5%;
+    }
+
+    .redo {
+      opacity: 0.5;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 2%;
+      margin-left: 2%;
+      margin-top: -0.5%;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+   var storage = localStorage;
+    storage["name"] = window.location.href.split('?')[1].split('=')[1]
+    var nameTag = storage.getItem("name")
+    var name = decodeURIComponent(nameTag)
+  </script>
+
+  <!--点赞图片切换-->
+  <script>
+    function change_pic1() {
+      var imgObj = document.getElementById("one");
+      if (imgObj.getAttribute("src", 2) == "../dist/modules/ionicons/png/512/ios7-heart-outline.png") {
+        imgObj.src = "../dist/modules/ionicons/png/512/ios7-heart.png";
+      } else {
+        imgObj.src = "../dist/modules/ionicons/png/512/ios7-heart-outline.png";
+      }
+    }
+
+    function change_pic2() {
+      var imgObj = document.getElementById("two");
+      if (imgObj.getAttribute("src", 2) == "../dist/modules/ionicons/png/512/ios7-heart-outline.png") {
+        imgObj.src = "../dist/modules/ionicons/png/512/ios7-heart.png";
+      } else {
+        imgObj.src = "../dist/modules/ionicons/png/512/ios7-heart-outline.png";
+      }
+    }
+  </script>
+
+  <!--三个图片的透明度-->
+  <script>
+    $(document).ready(function () {
+      $(".emoji1").hover(function () {
+        $(".emoji1").css("opacity", "1.0");
+      }, function () {
+        $(".emoji1").css("opacity", "0.5");
+      });
+      $(".emoji2").hover(function () {
+        $(".emoji2").css("opacity", "1.0");
+      }, function () {
+        $(".emoji2").css("opacity", "0.5");
+      });
+      $(".emoji3").hover(function () {
+        $(".emoji3").css("opacity", "1.0");
+      }, function () {
+        $(".emoji3").css("opacity", "0.5");
+      });
+    });
+  </script>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                  class="ion ion-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">View All</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+              <i class="ion ion-android-person d-lg-none"></i>
+              <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div>
+            </a>
+            <script>
+              $("#perponal").append(name)
+            </script>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="profile.html" class="dropdown-item has-icon">
+                <i class="ion ion-android-person"></i> 个人中心
+              </a>
+              <a href="#" class="dropdown-item has-icon">
+                <i class="ion ion-log-out"></i> 退出
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">工作室</a>
+          </div>
+          <script>
+            //头像展示
+            var data2 = {
+              "param": {
+                "user_name": name
+              }
+            }
+            var data = JSON.stringify(data2)
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/geticon",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                // var img = new Image();
+                // img.src = data.data.msg;
+                // document.getElementById("image").appendChild(img);
+                $("#image").attr("src", data.data.msg)
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/getuser",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                var msgs = `<div class="sidebar-user-details">
+                              <div class="user-name" >${data.data.msg.user_name}</div>
+                              <div class="user-role" >
+                                ${data.data.msg.user_position}
+                              </div>
+                            </div>`
+                            $("#msgs").append(msgs);
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+          </script>
+          <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="#" id="image">
+            </div>           
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="active">
+              <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
+            </li>
+
+            <li class="menu-header">Components</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
+                <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
+                
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡</a></li>
+                <li><a href="form-first.html"><i class="ion ion-ios-circle-outline"></i> 周报打卡</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
+            </li>
+            <li>
+              <a href="#"class="has-dropdown"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
+                <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
+                <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
+                <!-- <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li> -->
+              </ul>
+            </li>
+
+            <li class="menu-header">More</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
+              <ul class="menu-dropdown">
+                <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
+                <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="achievement.html"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="simple.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
+            </li>
+          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i>
+              <div>退   出!</div>
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <script>
+        $(document).ready(function () {
+
+            var data3 = {
+              "param": {
+               
+              }
+            }
+
+            var data = JSON.stringify(data3)
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/say/getSayDetail",
+              contentType: "application/json;charset=utf-8",
+              data,
+              dataType: "json",
+              success: function (data) {
+                
+                  
+                    
+               for (let i = 0; i < data.data.length; i++) {
+
+                  var str = `<div class="row">
+                                <div class="col-12" >
+                                  <div class="card" >
+                                    <div class="card-header" id="saysay1">
+                                      <h4>${data.data[i].say_title}</h4>
+                                    </div>
+                                  
+                                    <div class="card-body">                    
+                                      <div>
+                                        <img alt="image" class="pic" src="${data.data[i].user_icon}">
+                                        <div>
+                                          <div class="id">${data.data[i].user_name}</div>
+                                          <div class="tim">${data.data[i].say_date}</div>
+                                          <div class="say">${data.data[i].say_content}</div>
+                                          <div style="margin-bottom: -2%;">
+
+                                          
+                                            <a href="###" οnmοuseοver="this.style.cursor='hand'" οnmοuseοut="this.style.cursor='normal'">
+                                              <img src="../dist/modules/ionicons/png/512/ios7-heart-outline.png" id="one"
+                                                class="emoji1 heart" onclick="change_pic1()">
+                                            </a>
+
+                                          
+                                            
+                                            <a href="###" onmouseover="document.myImage1.src=rollImage1.src;"
+                                              onmouseout="document.myImage1.src=defaultImage1.src;">
+                                              <img src="../dist/modules/ionicons/png/512/ios7-chatbubble-outline.png" id="pinglun"
+                                                name="myImage1" class="emoji2 chatbubble">
+                                            </a>
+                                          
+                                          
+                                            <a href="###" onmouseover="document.myImage2.src=rollImage2.src;"
+                                              onmouseout="document.myImage2.src=defaultImage2.src;">
+                                              <img src="../dist/modules/ionicons/png/512/ios7-redo-outline.png" name="myImage2"
+                                                class="emoji3 redo">
+                                            </a>
+                                          </div>
+
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>`
+                  $("#saysay1").append(str);
+                 }
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+          })
+                
+        
+        
+        </script>
+      <div class="main-content">
+        <section class="section">
+          <h1 class="section-header">
+            <div>SaySay</div>
+          </h1>
+          <div class="section-body" id="saysay1">
+            <div class="row">
+              <div class="col-12" >
+                <div class="card" >
+                  <div class="card-header" >
+                    <h4>好友动态</h4>
+                  </div>
+                
+                  <div class="card-body">                    
+                    <div>
+                      <img alt="image" class="pic" src="../dist/img/avatar/avatar-1.jpeg">
+                      <div>
+                        <div class="id">王飞宇</div>
+                        <div class="tim">11:10 2019/12/27</div>
+                        <div class="say">今天天气很好！</div>
+                        <div style="margin-bottom: -2%;">
+
+                         
+                          <a href="###" οnmοuseοver="this.style.cursor='hand'" οnmοuseοut="this.style.cursor='normal'">
+                            <img src="../dist/modules/ionicons/png/512/ios7-heart-outline.png" id="one"
+                              class="emoji1 heart" onclick="change_pic1()">
+                          </a>
+
+                         
+                          
+                          <a href="###" onmouseover="document.myImage1.src=rollImage1.src;"
+                            onmouseout="document.myImage1.src=defaultImage1.src;">
+                            <img src="../dist/modules/ionicons/png/512/ios7-chatbubble-outline.png" id="pinglun"
+                              name="myImage1" class="emoji2 chatbubble">
+                          </a>
+                        
+                         
+                          <a href="###" onmouseover="document.myImage2.src=rollImage2.src;"
+                            onmouseout="document.myImage2.src=defaultImage2.src;">
+                            <img src="../dist/modules/ionicons/png/512/ios7-redo-outline.png" name="myImage2"
+                              class="emoji3 redo">
+                          </a>
+                        </div>
+
+                        <div style="position: relative;margin-bottom: 0.5%;">
+                          ————————————————————————————
+                        </div>
+                        <div style="margin-top: 2%;">
+                          <img alt="image" class="pic1" src="../dist/img/avatar/avatar-1.jpeg">
+                          <div class="id1">王飞宇</div>
+                          <div class="biaodian">:</div>
+                          <div class="talk">明天可能会下雨</div>
+                          <div class="tim1">11:10 2019/12/27</div>
+                          <div>
+                          </div>
+                          <div style="margin-top: -2%;">
+                            <input class="input input1" id="wenben" type="text" placeholder="评论">
+                            <div class="hid">
+                              <textarea rows="5" cols="10"
+                                style="width: 400px;height: 56px;margin-top: -1%;"></textarea>
+                              <div>
+                                <input type="submit" value="发表" style="margin-left:23% ;">
+                              </div>
+                            </div>                     
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+      
+
+      </div>
+    </div>
+  </div>
+   <!--评论转发鼠标事件-->
+   <script>
+    var rollImage1 = new Image();
+    rollImage1.src = "../dist/modules/ionicons/png/512/ios7-chatbubble.png"
+    var defaultImage1 = new Image();
+    defaultImage1.src = "../dist/modules/ionicons/png/512/ios7-chatbubble-outline.png"
+    var rollImage2 = new Image();
+    rollImage2.src = "../dist/modules/ionicons/png/512/ios7-redo.png"
+    var defaultImage2 = new Image();
+    defaultImage2.src = "../dist/modules/ionicons/png/512/ios7-redo-outline.png"
+  </script>
+
+<!--点击评论显示隐藏文本框和按钮-->
+<style>
+  .hid {
+    display: none;
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    $(".input1").focus(function () {
+      $(this).hide();
+      $(this).next().show();
+      $(this).next().children("input[type='submit']").focus()
+    })
+    $(".hid textarea").blur(function () {
+      $(this).parents(".hid").hide();
+      $(this).parents(".hid").prev().show();
+    })
+  });
+</script>
+ <!--评论鼠标事件-->
+ <script>
+  $(function () {
+    $("#pinglun").click(function () {
+      $("#wenben").focus();
+    });
+  });
+</script>
+</body>
+<script src="../dist/modules/popper.js"></script>
+  <script src="../dist/modules/tooltip.js"></script>
+  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+  <script src="../dist/js/sa-functions.js"></script>
+
+  <script src="../dist/modules/chart.min.js"></script>
+  <script src="../dist/modules/summernote/summernote-lite.js"></script>
+  <script src="../dist/js/scripts.js"></script>
+  <script src="../dist/js/custom.js"></script>
+  <script src="../dist/js/demo.js"></script>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+  <title>我的主页</title>
+
+  <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <script src="../dist/modules/jquery.min.js"></script>
+  <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
+  <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="../dist/css/demo.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+</head>
+
+<body>
+<script>
+  var storage=localStorage;
+  storage["name"] = window.location.href.split('?')[1].split('=')[1]
+  var nameTag = storage.getItem("name")
+  var name = decodeURIComponent(nameTag)
+</script>
+<div id="app">
+  <div class="main-wrapper">
+    <div class="navbar-bg"></div>
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+          <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+        </div>
+      </form>
+      <ul class="navbar-nav navbar-right">
+        <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+          <div class="dropdown-menu dropdown-list dropdown-menu-right">
+            <div class="dropdown-header">Notifications
+              <div class="float-right">
+                <a href="#">View All</a>
+              </div>
+            </div>
+            <div class="dropdown-list-content">
+              <a href="#" class="dropdown-item dropdown-item-unread">
+                <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                  <div class="time">10 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item dropdown-item-unread">
+                <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                  <div class="time">12 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                  <div class="time">12 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                  <div class="time">16 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                  <div class="time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+          <i class="ion ion-android-person d-lg-none"></i>
+          <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div></a>
+          <script>
+            $("#perponal").append(name)
+          </script>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="personal.html" class="dropdown-item has-icon">
+              <i class="ion ion-android-person"></i> 个人中心
+            </a>
+            <a href="#" class="dropdown-item has-icon">
+              <i class="ion ion-log-out"></i> 退出
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-sidebar">
+      <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+          <a href="index.html">工作室</a>
+        </div>
+        <script>
+          //头像展示
+          var data2 = {
+            "param": {
+              "user_name": name
+            }
+          }
+          var data = JSON.stringify(data2)
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/user/geticon",
+            contentType: "application/json",
+            data,
+            dataType: "json",
+            success: function (data) {
+              // var img = new Image();
+              // img.src = data.data.msg;
+              // document.getElementById("image").appendChild(img);
+              $("#image").attr("src", data.data.msg)
+            },
+            error: function (message) {
+              //失败信息
+            }
+          });
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/user/getuser",
+            contentType: "application/json",
+            data,
+            dataType: "json",
+            success: function (data) {
+              var msgs = `<div class="sidebar-user-details">
+                            <div class="user-name" >${data.data.msg.user_name}</div>
+                            <div class="user-role" >
+                              ${data.data.msg.user_position}
+                            </div>
+                          </div>`
+                          $("#msgs").append(msgs);
+            },
+            error: function (message) {
+              //失败信息
+            }
+          });
+        </script>
+        <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
+          <div class="sidebar-user-picture">
+            <img alt="image" src="#" id="image">
+          </div>           
+        </div>
+        <ul class="sidebar-menu">
+          <li class="menu-header">Dashboard</li>
+          <li class="active">
+            <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
+          </li>
+
+          <li class="menu-header">Components</li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
+            <ul class="menu-dropdown">
+               <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
+              <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡</a></li>
+              <li><a href="form-first.html"><i class="ion ion-ios-circle-outline"></i> 周报打卡</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
+          </li>
+          <li>
+            <a href="#"class="has-dropdown"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
+              <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
+          </li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
+              <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
+              <!-- <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li> -->
+            </ul>
+          </li>
+
+          <li class="menu-header">More</li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
+            <ul class="menu-dropdown">
+              <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
+              <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                <ul class="menu-dropdown">
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                  <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                    <ul class="menu-dropdown">
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </li>
+          <li>
+            <a href="achievement.html"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
+          </li>
+          <li>
+            <a href="simple.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
+          </li>
+        </ul>
+        <div class="p-3 mt-4 mb-4">
+          <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+            <i class="ion ion-help-buoy"></i>
+            <div>退   出!</div>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div class="main-content">
+      <section class="section">
+        <h1 class="section-header">
+          <div>我的仪表盘</div>
+        </h1>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+              <div class="card-icon bg-primary">
+                <i class="ion ion-person"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>总管理员</h4>
+                </div>
+                <div class="card-body">
+                  1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+              <div class="card-icon bg-danger">
+                <i class="ion ion-ios-paper-outline"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>新消息</h4>
+                </div>
+                <div class="card-body">
+                  42
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+              <div class="card-icon bg-warning">
+                <i class="ion ion-paper-airplane"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>回信</h4>
+                </div>
+                <div class="card-body">
+                  1,201
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="card card-sm-3">
+              <div class="card-icon bg-success">
+                <i class="ion ion-record"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4>在线用户s</h4>
+                </div>
+                <div class="card-body">
+                  47
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="#">
+          <form method="post" class="needs-validation" novalidate  action="#" onsubmit="return false">
+            <div class="card">
+              <div class="card-header">
+                <h4>发布任务</h4>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>题目</label>
+                  <input id="say_title" type="text" name="title" class="form-control" required>
+                  <div class="invalid-feedback">
+                    Please fill in the title
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>内容</label>
+                  <textarea id="say_content" class="summernote-simple"></textarea>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary" type="submit">发布</button>
+              </div>
+            </div>
+          </form>
+          <script>
+            $.ajaxSetup({
+              headers:{'Content-Type':'application/json;charset=utf8'},
+              xhrFields: {
+                withCredentials: true
+              },
+              crossDomain: true,
+            })
+            $("[type='submit']").on('click', function() {
+
+              var say_title = $("#say_title").val();
+              var say_content = $('#say_content').val();
+
+              var data2 = {
+                "param": {
+                  "user_name": name,
+                  "say_title": say_title,
+                  "say_content": say_content
+                }
+              }
+
+              var data = JSON.stringify(data2)
+              $.ajax({
+                type: "POST",
+                url:  "http://localhost:8081/say/writesay",
+                contentType: "application/json;charset=utf-8",
+                data,
+                dataType: "json",
+                success: function (data) {
+                  //成功信息
+                },
+                error: function (message) {
+                  //失败信息
+                }
+              });
+            })
+
+          </script>
+
+
+
+
+
+
+          <script>
+
+            $(document).ready(function() {
+
+
+              var data2 = {
+                "param": {
+                  "user_name": name
+                }
+              }
+
+              var data = JSON.stringify(data2)
+              $.ajax({
+                type: "POST",
+                url:  "http://localhost:8081/say/getallsay",
+                contentType: "application/json;charset=utf-8",
+                data,
+                dataType: "json",
+                success: function (data) {
+
+                  for (let i = 0; i < data.data.msg.length; i++) {
+                    let say = `<tr>
+                                                    <td>
+                                                      ${data.data.msg[i].say_title}
+                                                      <div class="table-links">
+                                                        in <a href="#">Web Development</a>
+                                                        <div class="bullet"></div>
+                                                        <a href="#">View</a>
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <a href="#"><img src="../dist/img/avatar/avatar-1.jpeg" alt="avatar" width="30" class="rounded-circle mr-1">${data.data.msg[i].user_name}</a>
+                                                    </td>
+                                                    <td>
+                                                      <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
+                                                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"><i class="ion ion-trash-b"></i></a>
+                                                    </td>
+                                                  </tr>`
+                    $("#say").append(say);
+                  }
+                },
+                error: function (message) {
+                  //失败信息
+                }
+              });
+
+
+            })
+          </script>
+
+
+
+
+
+
+        </div>
+      </section>
+    </div>
+    <footer class="main-footer">
+      <div class="footer-left">
+        Copyright &copy; 2018 <div class="bullet"></div> More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+      </div>
+      <div class="footer-right"></div>
+    </footer>
+  </div>
+</div>
+
+<script src="../dist/modules/popper.js"></script>
+<script src="../dist/modules/tooltip.js"></script>
+<script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+<script src="../dist/js/sa-functions.js"></script>
+
+<script src="../dist/modules/chart.min.js"></script>
+<script src="../dist/modules/summernote/summernote-lite.js"></script>
+<script src="../dist/js/scripts.js"></script>
+<script src="../dist/js/custom.js"></script>
+<script src="../dist/js/demo.js"></script>
+</body>
+</html>

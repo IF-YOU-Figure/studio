@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    name="viewport">
+  <title>个人中心</title>
+
+  <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+
+  <link rel="stylesheet" href="../dist/modules/toastr/build/toastr.min.css">
+  <link rel="stylesheet" href="../dist/css/demo.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+
+
+  <script src="../dist/js/base64image.js" type="text/javascript"></script>
+  <script src="../dist/js/exif.js" type="text/javascript"></script>
+  <script src="../dist/modules/jquery.min.js"></script>
+</head>
+<script>
+  var storage = localStorage;
+  storage["name"] = window.location.href.split('?')[1].split('=')[1]
+  var nameTag = storage.getItem("name")
+  var name = decodeURIComponent(nameTag)
+</script>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                  class="ion ion-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">View All</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+              <i class="ion ion-android-person d-lg-none"></i>
+              <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div>
+            </a>
+            <script>
+              $("#perponal").append(name)
+            </script>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="personal.html" class="dropdown-item has-icon">
+                <i class="ion ion-android-person"></i> 个人中心
+              </a>
+              <a href="login.html" class="dropdown-item has-icon">
+                <i class="ion ion-log-out"></i> 退出
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">工作室</a>
+          </div>
+          <script>
+            //头像展示
+            var data2 = {
+              "param": {
+                "user_name": name
+              }
+            }
+            var data = JSON.stringify(data2)
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/geticon",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                // var img = new Image();
+                // img.src = data.data.msg;
+                // document.getElementById("image").appendChild(img);
+                $("#image").attr("src", data.data.msg)
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/getuser",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                var msgs = `<div class="sidebar-user-details">
+                              <div class="user-name" >${data.data.msg.user_name}</div>
+                              <div class="user-role" >
+                                ${data.data.msg.user_position}
+                              </div>
+                            </div>`
+                $("#msgs").append(msgs);
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+          </script>
+          <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="#" id="image">
+            </div>           
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="active">
+              <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
+            </li>
+
+            <li class="menu-header">Components</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
+              <ul class="menu-dropdown">
+                 <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
+                <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
+
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
+               <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
+            </li>
+            <li>
+              <a href="statistics.html"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
+            </li>
+            <li>
+              <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
+                <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
+                <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">More</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
+              <ul class="menu-dropdown">
+                <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
+                <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="credits.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
+            </li>
+          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i>
+              <div>Go PRO!</div>
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="main-content">
+        <div>
+
+        </div>
+        <section style="background: url('../dist/img/test.jpg');" class="section">
+          <div class="section-header-img" id="personalInform">
+            <!-- background: url(../img/botton.png) no-repeat;
+            background: url(../img/botton.png) no-repeat;
+            background-size:100% 100%;  
+            width: 118px;
+            height: 39px; -->
+
+            <!-- <img src="../dist/img/test.jpg"> -->
+            <div id="img">
+              <!-- class="test" -->
+
+              <!-- class="rounded-circle dropdown-item-img" -->
+            </div>
+            <br>
+            <input type="file" style="display: none" onchange="fileUp(this)" id="file-up">
+            <button type="submit" style="background-color: transparent;border:none;color: rgb(156, 150, 156);"
+              onclick="document.getElementById('file-up').click();"> 修改头像</button>
+            <p></p>
+          </div>
+          <script>
+            var fileUp = function (me) {
+              base64Image({
+                width: 750,
+                /*【选填】宽度默认750，如果图片尺寸大于该宽度，图片将被设置为该宽度*/
+                ratio: 0.75,
+                /*【选填】压缩率默认0.75 */
+                file: me,
+                /*【必填】对应的上传元素 */
+                callback: function (imageUrl) {
+                  /*【必填】处理成功后的回调函数 */
+                  /*imageUrl为得到的图片base64数据，这里可以进行上传到服务器或者其他逻辑操作 */
+                  // var img = new Image();
+                  // img.src = imageUrl;
+                  // document.getElementById("image-list").appendChild(img);
+
+
+                  var data2 = {
+                    "param": {
+                      "user_name": name,
+                      "user_icon": imageUrl
+                    }
+                  }
+                  var data = JSON.stringify(data2)
+                  $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8081/user/updateicon",
+                    contentType: "application/json",
+                    data,
+                    dataType: "json",
+                    success: function (data) {
+                      alert("修改成功")
+
+                    },
+                    error: function (message) {
+                      //失败信息
+                    }
+                  });
+
+                },
+              });
+            };
+            //头像展示
+            var data2 = {
+              "param": {
+                "user_name": name
+              }
+            }
+            var data = JSON.stringify(data2)
+            $.ajax({
+              type: "POST",
+              url: "http://localhost:8081/user/geticon",
+              contentType: "application/json",
+              data,
+              dataType: "json",
+              success: function (data) {
+                var icon = `<img alt="image" src="${data.data.msg}" class="test" > `
+                $("#img").append(icon);
+              },
+              error: function (message) {
+                //失败信息
+              }
+            });
+            //用户信息
+            $(document).ready(function () {
+
+              var data2 = {
+                "param": {
+                  "user_name": name,
+                }
+              }
+
+              var data = JSON.stringify(data2)
+              $.ajax({
+                type: "POST",
+                url: "http://localhost:8081/user/getuser",
+                contentType: "application/json;charset=utf-8",
+                data,
+                dataType: "json",
+                success: function (data) {
+                  var str = `<div class="card" style="background: url('../dist/img/test1.jpg');">
+                            <div class="card-body" > 
+                              <div class="message1">
+                                姓名：${data.data.msg.user_name}
+                              </div>
+                              <div class="message2">
+                                职务：${data.data.msg.user_position}
+                              </div>
+                              <div class="message2">
+                                校区：${data.data.msg.user_address}
+                              </div>
+                              <div class="message1"> 
+                                年龄：${data.data.msg.user_age}
+                              </div>
+                              <div class="message2">
+                                方向：${data.data.msg.user_direction}
+                              </div>
+                              <div class="message1"> 
+                                目标：${data.data.msg.user_target}
+                              </div>
+                              <div class="message1">
+                                QQ：${data.data.msg.user_qq}
+                              </div>
+                              <div class="message2">
+                                年级：${data.data.msg.user_grade}
+                              </div>
+                              <div class="message2">
+                                电话：${data.data.msg.user_phone}
+                              </div>
+                              <div class="message1"> 
+                                email：${data.data.msg.user_email}
+                              </div>
+                            </div>
+                            <button type="submit" style="background-color: transparent; border:none;margin:0 auto;color: rgb(156, 150, 156);" onclick="window.location.href='modify.html?name=${name}';"> 点击更改个人信息</button>
+                            <br>
+                          </div>`
+                  $("#personalInform").append(str);
+
+
+                },
+                error: function (message) {
+                  //失败信息
+                }
+              });
+
+
+            })
+          </script>
+          <div class="section-body">
+            <hr>
+            <div class="row">
+
+              <div class="row-1" style="background: url('../dist/img/test1.jpg');">
+                <div class="card-body text-center">
+                  <div class="mb-2">说说</div>
+                  <button type="submit" class="btn btn-primary"
+                    onclick="toastr.info('This awesome plugin is made by toastr', 'Hello, world!');">Launch</button>
+                </div>
+              </div>
+
+              <div class="row-1" style="background: url('../dist/img/test1.jpg');">
+                <div class="card-body text-center">
+                  <div class="mb-2">个人任务</div>
+                  <button type="submit" class="btn btn-primary"
+                    onclick="toastr.success('This awesome plugin is made by toastr', 'Hello, world!');">Launch</button>
+                </div>
+              </div>
+
+              <div class="row-1" style="background: url('../dist/img/test1.jpg');">
+                <div class="card-body text-center">
+                  <div class="mb-2">待定</div>
+                  <button type="submit" class="btn btn-primary"
+                    onclick="toastr.info('This awesome plugin is made by toastr', 'Hello, world!');">Launch</button>
+                </div>
+              </div>
+
+              <div class="row-1" style="background: url('../dist/img/test1.jpg');">
+                <div class="card-body text-center">
+                  <div class="mb-2">待定</div>
+                  <button type="submit" class="btn btn-primary"
+                    onclick="toastr.info('This awesome plugin is made by toastr', 'Hello, world!');">Launch</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2019 <div class="bullet"></div> More information <a href="http://www.liefeng.com/"
+            target="_blank" title="模板之家">猎风工作室</a> - Create By <a href="http://www.liefeng.com/" title="网页模板"
+            target="_blank">一起飞跃</a>
+        </div>
+        <div class="footer-right"></div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../dist/modules/jquery.min.js"></script>
+  <script src="../dist/modules/popper.js"></script>
+  <script src="../dist/modules/tooltip.js"></script>
+  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+  <script src="../dist/js/sa-functions.js"></script>
+
+  <script src="../dist/modules/toastr/build/toastr.min.js"></script>
+  <script src="../dist/js/scripts.js"></script>
+  <script src="../dist/js/custom.js"></script>
+  <script src="../dist/js/demo.js"></script>
+</body>
+
+</html>

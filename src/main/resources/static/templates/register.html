@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+  <title>注册-工作室</title>
+
+  <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+
+  <link rel="stylesheet" href="../dist/css/demo.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+  <script src="../dist/modules/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+    $("input[name='password-confirm']").on('input propertychange',function(){
+      
+      if($("input[name='password']").val()!=$("input[name='password-confirm']").val()){
+        $("input[name='password-confirm']").css("border-color","red");
+        }else{
+        $("input[name='password-confirm']").css("border-color","black");
+        }
+      });
+    });
+  </script>
+
+<style type="text/css">
+.form-control{
+  border-color:black;
+}
+</style>
+
+</head>
+
+<body style="background: url('../dist/img/1.jpg');">
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="login-brand">
+              工作室
+            </div>
+
+            <div class="card card-primary">
+              <div class="card-header"><h4>注册</h4></div>
+
+              <div class="card-body">
+                <form method="POST" action="#" onsubmit="return false">
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label for="name">姓名（请用真实姓名）</label>
+                      <input id="name" type="text" class="form-control" name="name" autofocus>
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input id="email" type="email" class="form-control" name="email">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label for="password" class="d-block">密码</label>
+                      <input id="password" type="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="password2" class="d-block">重复密码</label>
+                      <input id="password2" type="password" class="form-control" name="password-confirm">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="agree" class="custom-control-input" id="agree">
+                      <label class="custom-control-label" for="agree">我同意这些条款和条件</label>
+                    </div>
+                  </div>  
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                      注册
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="simple-footer">
+              Copyright &copy; 工作室 2019
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    $.ajaxSetup({
+      headers:{'Content-Type':'application/json;charset=utf8'},
+      xhrFields: {
+        withCredentials: true
+      },
+      crossDomain: true,
+    })
+    $("[type='submit']").on('click', function() {
+    
+        var name = $("#name").val();
+        var password = $('#password').val();
+        var email = $("#email").val();
+        var data2 = {
+            "param": {
+                "user_name": name,
+                "user_password": password,
+                "user_email":email
+            }
+        }
+        
+        var data = JSON.stringify(data2)                      
+            $.ajax({
+            type: "POST",
+            url:  "http://localhost:8081/user/register",
+            contentType: "application/json;charset=utf-8",
+            data,                  
+            dataType: "json",
+            success: function (data) {
+                let msg = data.data.msg
+                if(msg == "注册成功!"){
+                  location.href='index.html?name='+name
+                }
+            },
+            error: function (message) {
+                //失败信息
+            }
+        });
+    })         
+        
+    </script>
+  <script src="../dist/modules/jquery.min.js"></script>
+  <script src="../dist/modules/popper.js"></script>
+  <script src="../dist/modules/tooltip.js"></script>
+  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+  <script src="../dist/js/sa-functions.js"></script>
+  
+  <script src="../dist/js/scripts.js"></script>
+  <script src="../dist/js/custom.js"></script>
+  <script src="../dist/js/demo.js"></script>
+</body>
+</html>
