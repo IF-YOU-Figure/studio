@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface SayMapper {
 
-    @Select("SELECT * FROM say")
+    @Select("SELECT user.user_icon,say.user_name,say.say_title,say.say_content,say.say_date FROM user,say WHERE user.user_name=say.user_name")
     List<Say> getSendSay();
 
     @Insert("INSERT INTO say(user_name,say_title,say_content) VALUES (#{user_name},#{say_title},#{say_content})")

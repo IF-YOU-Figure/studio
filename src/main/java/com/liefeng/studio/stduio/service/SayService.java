@@ -9,16 +9,14 @@ import com.liefeng.studio.stduio.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class SayService {
 
     @Autowired
     private SayMapper sayMapper;
+    @Autowired
     private UserMapper userMapper;
 
     public Map<String, Object> getSay(ServiceRequest serviceRequest){
@@ -46,8 +44,8 @@ public class SayService {
         return result;
     }
 
-    public Map<String, Object> getSayDetail(ServiceRequest serviceRequest){
-        Map<String, Object> result = new HashMap<>();
+    public ArrayList<Object> getSayDetail(ServiceRequest serviceRequest){
+        ArrayList<Object> result = new ArrayList<>();
         int sayNumber = sayMapper.getSayNumberSay();
 
         for (int i = 1; i < sayNumber+1; i++) {
@@ -58,9 +56,8 @@ public class SayService {
             say.setUser_icon(new String((byte[]) img));
             List<SaySayComment> saySayComments = sayMapper.getSayComment(say_title);
             say.setComment(saySayComments);
-            result.put("saydetail_"+i,say);
+            result.add(say);
         }
-
         return result;
     }
 

@@ -62,5 +62,6 @@ public interface UserMapper {
                       @Param("user_direction") String user_direction,
                       @Param("user_target") String user_target);
 
-
+    @Select("SELECT user_direction FROM user WHERE user_name=#{user_name}")
+    String  getUserDirection(@Param("user_name") String user_name);
 }
