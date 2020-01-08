@@ -13,7 +13,6 @@ import java.util.*;
 public class EnglishService {
 
 
-
     private final EnglishMapper englishMapper;
 
 
@@ -43,6 +42,7 @@ public class EnglishService {
         result.put("msg",weekRanking);
         return result;
     }
+
 
     public Map<String, Object> totalRanking(ServiceRequest serviceRequest){
         Map<String, Object> result = new HashMap<>();

@@ -25,76 +25,76 @@
 </head>
 
 <body>
-  <script>
-    var storage=localStorage;
-      storage["user_name"] = window.location.href.split('?')[1].split('=')[1]
-      var name = storage.getItem("user_name")
-    </script>
-  <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-      <nav class="navbar navbar-expand-lg main-navbar">
-        <form class="form-inline mr-auto">
-          <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
-          </ul>
-          <div class="search-element">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
-          </div>
-        </form>
-        <ul class="navbar-nav navbar-right">
-          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Notifications
-                <div class="float-right">
-                  <a href="#">View All</a>
-                </div>
-              </div>
-              <div class="dropdown-list-content">
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
-                  <div class="dropdown-item-desc">
-                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
-                    <div class="time">10 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item dropdown-item-unread">
-                  <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
-                  <div class="dropdown-item-desc">
-                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
-                  <div class="dropdown-item-desc">
-                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
-                    <div class="time">12 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
-                  <div class="dropdown-item-desc">
-                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
-                    <div class="time">16 Hours Ago</div>
-                  </div>
-                </a>
-                <a href="#" class="dropdown-item">
-                  <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
-                  <div class="dropdown-item-desc">
-                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
-                    <div class="time">Yesterday</div>
-                  </div>
-                </a>
+<script>
+  var storage=localStorage;
+  storage["user_name"] = window.location.href.split('?')[1].split('=')[1]
+  var name = storage.getItem("user_name")
+</script>
+<div id="app">
+  <div class="main-wrapper">
+    <div class="navbar-bg"></div>
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+          <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+        </div>
+      </form>
+      <ul class="navbar-nav navbar-right">
+        <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+          <div class="dropdown-menu dropdown-list dropdown-menu-right">
+            <div class="dropdown-header">Notifications
+              <div class="float-right">
+                <a href="#">View All</a>
               </div>
             </div>
-          </li>
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
-            <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div>
-          </a>
+            <div class="dropdown-list-content">
+              <a href="#" class="dropdown-item dropdown-item-unread">
+                <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                  <div class="time">10 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item dropdown-item-unread">
+                <img alt="image" src="../dist/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                  <div class="time">12 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                  <div class="time">12 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                  <div class="time">16 Hours Ago</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item">
+                <img alt="image" src="../dist/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                <div class="dropdown-item-desc">
+                  <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                  <div class="time">Yesterday</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+          <i class="ion ion-android-person d-lg-none"></i>
+          <div class="d-sm-none d-lg-inline-block" id="perponal">Hi！</div>
+        </a>
           <script>
             $("#perponal").append(name)
           </script>
@@ -107,285 +107,286 @@
             </a>
           </div>
         </li>
-        </ul>
-      </nav>
-      <div class="main-sidebar">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="index.html">工作室</a>
-          </div>
-          <script>
-            //头像展示
-            var data2 = {
-              "param": {
-                "user_name": name
-              }
+      </ul>
+    </nav>
+    <div class="main-sidebar">
+      <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+          <a href="index.html">工作室</a>
+        </div>
+        <script>
+          //头像展示
+          var data2 = {
+            "param": {
+              "user_name": name
             }
-            var data = JSON.stringify(data2)
-            $.ajax({
-              type: "POST",
-              url: "http://localhost:8081/user/geticon",
-              contentType: "application/json",
-              data,
-              dataType: "json",
-              success: function (data) {
-                // var img = new Image();
-                // img.src = data.data.msg;
-                // document.getElementById("image").appendChild(img);
-                $("#image").attr("src", data.data.msg)
-              },
-              error: function (message) {
-                //失败信息
-              }
-            });
-            $.ajax({
-              type: "POST",
-              url: "http://localhost:8081/user/getuser",
-              contentType: "application/json",
-              data,
-              dataType: "json",
-              success: function (data) {
-                var msgs = `<div class="sidebar-user-details">
+          }
+          var data = JSON.stringify(data2)
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/user/geticon",
+            contentType: "application/json",
+            data,
+            dataType: "json",
+            success: function (data) {
+              // var img = new Image();
+              // img.src = data.data.msg;
+              // document.getElementById("image").appendChild(img);
+              $("#image").attr("src", data.data.msg)
+            },
+            error: function (message) {
+              //失败信息
+            }
+          });
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/user/getuser",
+            contentType: "application/json",
+            data,
+            dataType: "json",
+            success: function (data) {
+              var msgs = `<div class="sidebar-user-details">
                               <div class="user-name" >${data.data.msg.user_name}</div>
                               <div class="user-role" >
                                 ${data.data.msg.user_position}
                               </div>
                             </div>`
-                            $("#msgs").append(msgs);
-              },
-              error: function (message) {
-                //失败信息
-              }
-            });
-          </script>
-          <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
-            <div class="sidebar-user-picture">
-              <img alt="image" src="#" id="image">
-            </div>           
+              $("#msgs").append(msgs);
+            },
+            error: function (message) {
+              //失败信息
+            }
+          });
+        </script>
+        <div class="sidebar-user" id="msgs" onclick="window.location.href='personal.html';">
+          <div class="sidebar-user-picture">
+            <img alt="image" src="#" id="image">
           </div>
-          <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="active">
-              <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
-            </li>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="menu-header">Dashboard</li>
+          <li class="active">
+            <a href="index.html"><i class="ion ion-speedometer"></i><span>我的主页</span></a>
+          </li>
 
-            <li class="menu-header">Components</li>
-            <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
-              <ul class="menu-dropdown">
-                 <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
-                <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
-                
-              </ul>
-            </li>
-            <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
-              <ul class="menu-dropdown">
-                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡</a></li>
-                <li><a href="form-first.html"><i class="ion ion-ios-circle-outline"></i> 周报打卡</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
-            </li>
-            <li>
-              <a href="#"class="has-dropdown"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
-              <ul class="menu-dropdown">
-                <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
-                <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
-            </li>
-            <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
-              <ul class="menu-dropdown">
-                <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
-                <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
-                <!-- <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li> -->
-              </ul>
-            </li>
+          <li class="menu-header">Components</li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>组件</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="saysay.html"><i class="ion ion-ios-circle-outline"></i> 动态</a></li>
+              <li><a href="table_user.html"><i class="ion ion-ios-circle-outline"></i> 在线用户</a></li>
 
-            <li class="menu-header">More</li>
-            <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
-              <ul class="menu-dropdown">
-                <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
-                <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
-                  <ul class="menu-dropdown">
-                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
-                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
-                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
-                      <ul class="menu-dropdown">
-                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
-                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
-                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
-                  </ul>
-                </li> -->
-              </ul>
-            </li>
-            <li>
-              <a href="achievement.html"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
-            </li>
-            <li>
-              <a href="simple.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
-            </li>
-          </ul>
-          <div class="p-3 mt-4 mb-4">
-            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
-              <i class="ion ion-help-buoy"></i>
-              <div>退   出!</div>
-            </a>
-          </div>
-        </aside>
-      </div>
-      <div class="main-content">
-        <section class="section">
-          <h1 class="section-header">
-            <div>成就</div>
-          </h1>
-       
-          <div class="section-body">
-                <div class="card">
-                  <div class="card-header">
-                    <div class="float-right">
-                      <div class="btn-group">
-                        <a href="#lg-simple" data-tab="list-group" class="btn active">已获取</a>
-                        <a href="#lg-badges" data-tab="list-group" class="btn">未获取</a>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>打卡</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡</a></li>
+              <li><a href="form-first.html"><i class="ion ion-ios-circle-outline"></i> 周报打卡</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="table.html"><i class="ion ion-clipboard"></i><span>图书借阅</span></a>
+          </li>
+          <li>
+            <a href="#"class="has-dropdown"><i class="ion ion-stats-bars"></i><span>学习情况统计</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="clock.html"><i class="ion ion-ios-circle-outline"></i> 英语打卡情况</a></li>
+              <li><a href="weeklylist.html"><i class="ion ion-ios-circle-outline"></i>周报打卡情况</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="table_user.html"><i class="ion ion-ios-location-outline"></i><span>成员信息</span></a>
+          </li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>任务</span></a>
+            <ul class="menu-dropdown">
+              <li><a href="task.html"><i class="ion ion-ios-circle-outline"></i> 发布任务</a></li>
+              <li><a href="tasklist.html"><i class="ion ion-ios-circle-outline"></i> 任务列表</a></li>
+              <!-- <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> 我的任务</a></li> -->
+            </ul>
+          </li>
+
+          <li class="menu-header">More</li>
+          <li>
+            <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> 益智游戏</a>
+            <ul class="menu-dropdown">
+              <li><a href="2048.html"><i class="ion ion-ios-circle-outline"></i> 2048</a></li>
+              <!-- <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                <ul class="menu-dropdown">
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                  <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                    <ul class="menu-dropdown">
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                      <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </li>
+          <li>
+            <a href="achievement.html"><i class="ion ion-heart"></i> 我的成就 <div class="badge badge-primary">10</div></a>
+          </li>
+          <li>
+            <a href="simple.html"><i class="ion ion-ios-information-outline"></i> 工作室简介</a>
+          </li>
+        </ul>
+        <div class="p-3 mt-4 mb-4">
+          <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+            <i class="ion ion-help-buoy"></i>
+            <div>退   出!</div>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div class="main-content">
+      <section class="section">
+        <h1 class="section-header">
+          <div>成就</div>
+        </h1>
+
+        <div class="section-body">
+          <div class="card">
+            <div class="card-header">
+              <div class="float-right">
+                <div class="btn-group">
+                  <a href="#lg-simple" data-tab="list-group" class="btn active">已获取</a>
+                  <a href="#lg-badges" data-tab="list-group" class="btn">未获取</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="active" id="lg-simple" data-tab-group="list-group">
+                <div class="row mt-4">
+                  <div class="picture">
+                    <img src="../dist/img/blank.png">
+                    <div class="blank">空空如也</div>
+                  </div>
+                </div>
+              </div>
+              <div id="lg-badges" data-tab-group="list-group">
+                <div class="row mt-4">
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/1.png">
+                      </div>
+                      <div class="card-wrap">
+
+                        <div class="card-header">
+                          <h4>字母饼干</h4>
+                        </div>
+                        <div class="card-body">
+                          第一次英语打卡
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="card-body">
-                    <div class="active" id="lg-simple" data-tab-group="list-group">
-                      <div class="row mt-4">
-                        <div class="picture">
-                          <img src="../dist/img/blank.png">
-                          <div class="blank">空空如也</div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/2.png">
+                      </div>
+                      <div class="card-wrap">
+                        <div class="card-header">
+                          <h4>第一次借书</h4>
+                        </div>
+                        <div class="card-body">
+                          有趣的灵魂
                         </div>
                       </div>
                     </div>
-                    <div id="lg-badges" data-tab-group="list-group">
-                      <div class="row mt-4">
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/1.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>Total Admin</h4>
-                              </div>
-                              <div class="card-body">
-                                10
-                              </div>
-                            </div>
-                          </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/3.png">
+                      </div>
+                      <div class="card-wrap">
+                        <div class="card-header">
+                          <h4>第一次完成周报</h4>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/2.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>News</h4>
-                              </div>
-                              <div class="card-body">
-                                42
-                              </div>
-                            </div>
-                          </div>
+                        <div class="card-body">
+                          周报不过如此
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/3.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>Reports</h4>
-                              </div>
-                              <div class="card-body">
-                                1,201
-                              </div>
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/4.png">
+                      </div>
+                      <div class="card-wrap">
+                        <div class="card-header">
+                          <h4>连续30天英语打卡</h4>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/4.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>Online Users</h4>
-                              </div>
-                              <div class="card-body">
-                                47
-                              </div>
-                            </div>
-                          </div>
+                        <div class="card-body">
+                          单词海盗
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/5.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>Total Admin</h4>
-                              </div>
-                              <div class="card-body">
-                                10
-                              </div>
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/5.png">
+                      </div>
+                      <div class="card-wrap">
+                        <div class="card-header">
+                          <h4>连续3个月完成周报</h4>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                          <div class="card card-sm-3">
-                            <div class="card-icon">
-                              <img src="../dist/img/6.png">
-                            </div>
-                            <div class="card-wrap">
-                              <div class="card-header">
-                                <h4>News</h4>
-                              </div>
-                              <div class="card-body">
-                                42
-                              </div>
-                            </div>
-                          </div>
+                        <div class="card-body">
+                          学霸养成计划
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card card-sm-3">
+                      <div class="card-icon">
+                        <img src="../dist/img/6.png">
+                      </div>
+                      <div class="card-wrap">
+                        <div class="card-header">
+                          <h4>累计借书20次</h4>
+                        </div>
+                        <div class="card-body">
+                          我想住在图书馆
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
           </div>
-        </section>
-      </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2019 <div class="bullet"></div> More information <a href="http://www.liefeng.com/" target="_blank" title="模板之家">猎风工作室</a> - Create By <a href="http://www.liefeng.com/" title="网页模板" target="_blank">一起飞跃</a>
         </div>
-        <div class="footer-right"></div>
-      </footer>
+      </section>
     </div>
+    <footer class="main-footer">
+      <div class="footer-left">
+        Copyright &copy; 2019 <div class="bullet"></div> More information <a href="http://www.liefeng.com/" target="_blank" title="模板之家">猎风工作室</a> - Create By <a href="http://www.liefeng.com/" title="网页模板" target="_blank">一起飞跃</a>
+      </div>
+      <div class="footer-right"></div>
+    </footer>
   </div>
+</div>
 
-  <script src="../dist/modules/jquery.min.js"></script>
-  <script src="../dist/modules/popper.js"></script>
-  <script src="../dist/modules/tooltip.js"></script>
-  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="../dist/js/sa-functions.js"></script>
-  
-  <script src="../dist/js/scripts.js"></script>
-  <script src="../dist/js/custom.js"></script>
-  <script src="../dist/js/demo.js"></script>
+<script src="../dist/modules/jquery.min.js"></script>
+<script src="../dist/modules/popper.js"></script>
+<script src="../dist/modules/tooltip.js"></script>
+<script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+<script src="../dist/js/sa-functions.js"></script>
+
+<script src="../dist/js/scripts.js"></script>
+<script src="../dist/js/custom.js"></script>
+<script src="../dist/js/demo.js"></script>
 </body>
 </html>
